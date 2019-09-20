@@ -45,7 +45,7 @@ table {
 body{
     margin: auto;
     text-align: center;
-    background-image: url("backgroundnovo.jpg");
+    background-image: url("b4.jpg");
     background-repeat: repeat;
     width: 100%;
 }
@@ -150,7 +150,6 @@ body{
       right: 0;
       margin: auto;
       overflow: auto;
-
     }
 
     a:hover {
