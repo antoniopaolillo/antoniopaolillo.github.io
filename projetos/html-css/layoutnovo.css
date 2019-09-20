@@ -62,8 +62,8 @@ body{
 
   .navigation-menu ul li {
     display: inline;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 100px;
+    margin-right: 100px;
   }
   .navigation-menu ul a {
     text-decoration: none;
