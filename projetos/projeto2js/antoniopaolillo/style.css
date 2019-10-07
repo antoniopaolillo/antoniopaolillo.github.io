@@ -53,6 +53,8 @@ body{
     font-size: 20px;
     margin-top: 40px;
     border-radius: 15px;
+    background-color: white;
+    color: black;
 }
 .tabelas{
     border-width: 3px;
