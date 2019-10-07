@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Mystery Letter</title>
+    <link href="https://fonts.googleapis.com/css?family=Notable|Passion+One&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="gerarCartas()">
+    <main>
+        <div class="input">
+            <p class = "h1">Mystery Letter</p>
+            <p class="texto">Digite o texto a ser embaralhado pelas cartas magicas:</p>
+            <input type="text" id="inputtxt" value="Essa será minha carta misteriosa !">
+            <button class="botaogerador" onclick="gerarCartas()">Gerar carta!</button>
+            <div class="numerodecartas"></div>
+
+        </div>
+        
+        <div class="cartamisteriosa"></div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
