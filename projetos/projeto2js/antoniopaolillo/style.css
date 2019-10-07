@@ -1,0 +1,71 @@
+body{
+    background-image: url(background2.jpg);
+}
+.container{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+}
+.tabelaemmovimento{
+    border-collapse: collapse;
+}
+.coresfixas{
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+.elemento{
+    width: 40px;
+    height: 40px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+.corselecionada{
+    width: 400px;
+    height: 80px;
+    border-color: white;
+    border-style: inset;
+    border-width: 2px;
+    text-align: center;
+    margin-top: 80px;
+}
+.texto{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: white;
+}
+.color{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: white;
+    margin-top: 100px;
+}
+.botoes{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+    border-radius: 15px;
+}
+.tabelas{
+    border-width: 3px;
+    border-color: white;
+    border-style: solid;
+}
+.cabecalho{
+    color: white;
+    margin-bottom: 7%;
+}
+#tamanhoquadrado{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-size: 25px;
+}
