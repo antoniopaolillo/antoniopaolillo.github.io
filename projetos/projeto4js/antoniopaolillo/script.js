@@ -6,23 +6,18 @@ var cartaMisteriosa = document.getElementsByClassName("cartamisteriosa")[0];
 var simbolos = "0123456789ABCDEF";
 var colorBackground = "#";
 var colorBackground2 = "#";
-var carta;
+var carta, numeroCartas, numeroCartasLength;
 
 
-function gerarCartas() {
-
+function geradorDeCartas() {
     var textoDigitado = document.getElementById("inputtxt");
     var textoDigitadoValue = textoDigitado.value;
     var textoDigitadoSplit = textoDigitadoValue.split(" ");
 
-    var numCartas = document.getElementsByTagName('div');
-    var numCartasLength = numCartas.length - 3;
+    numeroCartas = document.getElementsByTagName('div');
+    numeroCartasLength = numCartas.length - 3;
 
-    //apagando cartas anteriores
-    for (let j = 0; j < numCartasLength; j++) {
-        let primeiroFilho = cartaMisteriosa.firstElementChild;
-        cartaMisteriosa.removeChild(primeiroFilho);
-    }
+    apagarCartasAnteriores(numCartasLength);
 
     //gerando o numero de cartas
     for (let i = 0; i < textoDigitadoSplit.length; i++) {
@@ -35,26 +30,40 @@ function gerarCartas() {
         carta.innerHTML = texto;
 
         //chamando funções que vão modificar a div cartas
-        corBackground(carta);
-        geraCor(carta);
-        tamanhoFonte(carta);
-        buscandoImg(carta);
+        gerandoBackgroundColor(carta);
+        geradorDeCor(carta);
+        tamanhoDaFonte(carta);
+        adicionandoBackgroundImage(carta);
         styleFonte(carta);
     }
-    //alterando a div mediante clique
-    alteraFonte();
-
-    //mostrando na tela o numero de palavras
-    let numeroCartas = document.getElementsByClassName("cartas");
-    let numeroCartasLength = numeroCartas.length;
-    let divCartas = document.getElementsByClassName("numerodecartas")[0];
-    divCartas.innerHTML = "Quantidade da cartas misteriosas: " + numeroCartasLength;
-
-
+    mostrandoNumeroDeCartas(textoDigitadoSplit);
+    gerandoNovoEstilo();
 }
 
-//gerando backgroundcolor
-function corBackground(carta) {
+function apagarCartasAnteriores(numCartasLength) {
+    for (let j = 0; j < numCartasLength; j++) {
+        let primeiroFilho = cartaMisteriosa.firstElementChild;
+        cartaMisteriosa.removeChild(primeiroFilho);
+    }
+}
+
+function mostrandoNumeroDeCartas(textoDigitadoSplit) {
+    numeroCartas = document.getElementsByClassName("cartas");
+    numeroCartasLength = numeroCartas.length;
+    let contador = numeroCartasLength;
+
+    //verificando se é apenas espaço em branco
+    for (let i = 0; i < contador; i++) {
+        let testandoTexto = textoDigitadoSplit[i];
+        if (testandoTexto == "") {
+            numeroCartasLength--;
+        }
+    }
+    let divCartas = document.getElementsByClassName("numerodecartas")[0];
+    divCartas.innerHTML = "Quantidade da cartas misteriosas: " + numeroCartasLength;
+}
+
+function gerandoBackgroundColor(carta) {
     for (let n = 0; n < 6; n++) {
         let simboloSorteado = simbolos[Math.floor(Math.random() * 16)];
         colorBackground = colorBackground + simboloSorteado;
@@ -63,8 +72,7 @@ function corBackground(carta) {
     colorBackground = "#";
 }
 
-//gerando cor da fonte
-function geraCor(carta) {
+function geradorDeCor(carta) {
     for (let n = 0; n < 6; n++) {
         let simboloSorteado2 = simbolos[Math.floor(Math.random() * 16)];
         colorBackground2 = colorBackground2 + simboloSorteado2;
@@ -73,34 +81,30 @@ function geraCor(carta) {
     colorBackground2 = "#";
 }
 
-//gerando tamanho da fonte
-function tamanhoFonte(carta) {
-    var tamanhoFonte = Math.floor(Math.random() * (70 - 20) + 20);
-    carta.style.fontSize = tamanhoFonte + 'px';
+function tamanhoDaFonte(carta) {
+    var tamanhoDaFonte = Math.floor(Math.random() * (70 - 20) + 20);
+    carta.style.fontSize = tamanhoDaFonte + 'px';
 }
 
-//buscando background img
-function buscandoImg(carta) {
-    let sorteioImagem = Math.floor(Math.random() * 4);
-    carta.style.backgroundImage = "url('img" + [sorteioImagem] + ".png')"
+function adicionandoBackgroundImage(carta) {
+    let imagemSorteada = Math.floor(Math.random() * 4);
+    carta.style.backgroundImage = "url('img" + [imagemSorteada] + ".png')"
 }
 
-//gerando style da fonte
 function styleFonte(carta) {
     let sorteioStyle = Math.floor(Math.random() * 6);
     carta.style.fontStyle = fonts[sorteioStyle];
 }
 
-//alterando fontes mediante clique
-function alteraFonte() {
-    let numeroCartas = document.getElementsByClassName("cartas");
-    let numeroCartasLength = numeroCartas.length;
+function gerandoNovoEstilo() {
+    numeroCartas = document.getElementsByClassName("cartas");
+    numeroCartasLength = numeroCartas.length;
     for (let u = 0; u < numeroCartasLength; u++) {
         numeroCartas[u].addEventListener('click', function () {
-            corBackground(numeroCartas[u]);
-            geraCor(numeroCartas[u]);
-            tamanhoFonte(numeroCartas[u]);
-            buscandoImg(numeroCartas[u]);
+            gerandoBackgroundColor(numeroCartas[u]);
+            geradorDeCor(numeroCartas[u]);
+            tamanhoDaFonte(numeroCartas[u]);
+            adicionandoBackgroundImage(numeroCartas[u]);
             styleFonte(numeroCartas[u]);
         })
     }
