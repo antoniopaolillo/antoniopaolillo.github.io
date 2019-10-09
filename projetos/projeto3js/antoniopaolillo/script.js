@@ -1,10 +1,8 @@
 var numeroBola = document.getElementsByClassName("bolaacolorir");
 var numeroBolas = numeroBola.length;
-var corAdivinhar = document.getElementsByClassName("rgb")[0];
+var corAdivinhar = document.getElementsByClassName("rgbSorteado")[0];
 
-
-//funcao para gerar as cores aleatorias pelo rgb
-function gerarCores() {
+function gerarCoresIniciais() {
     let colorindo = [];
 
     for (let i = 0; i < numeroBolas; i++) {
@@ -25,7 +23,7 @@ function gerarCores() {
 
 }
 
-gerarCores();
+gerarCoresIniciais();
 add_event_click_all_cores();
 
 
@@ -55,8 +53,6 @@ function verificiar_placar(cor_clicado) {
 }
 
 
-
-//funcao para reiniciar o jogo
 function resetar() {
     let resposta = document.getElementsByClassName("resposta")[0];
     let corMomento = corAdivinhar.innerHTML;
@@ -66,11 +62,10 @@ function resetar() {
     resposta.innerHTML = "";
     placar.innerHTML = "";
 
-    gerarCores();
+    gerarCoresIniciais();
 }
 
-//gerar o numero de bolas coloridas
-function tamanho() {
+function numeroDeBolasColoridas() {
     let inputDeBolinhas = document.getElementsByClassName("inputtxt")[0];
     var nrDeBolinhas = inputDeBolinhas.value;
     let container = document.getElementsByClassName("containerbola")[0];
@@ -91,13 +86,12 @@ function tamanho() {
 
     //chamando as funções para serem executadas com o novo numero de bolas coloridas
     add_event_click_all_cores();
-    gerarCores();
+    gerarCoresIniciais();
 }
 
 let placar2 = 0;
 var array = [];
 
-//
 function placar() {
     let placarDiv = document.getElementsByClassName("placar")[0];
     let resposta = document.getElementsByClassName("resposta")[0];
@@ -108,7 +102,7 @@ function placar() {
     //conferindo se acertou ou errou
     if (respostaHtml == "Acertou!") {
         placar2 += valor1;
-        gerarCores();
+        gerarCoresIniciais();
         //regra dos tres acertos consecutivos
         if ((array[array.length - 1] + array[array.length - 2]) > 5) {
             placar2 += 1;

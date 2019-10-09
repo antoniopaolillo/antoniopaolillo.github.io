@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -14,27 +13,23 @@
 
 <body>
     <main class="container">
-        <!-- nome do jogo -->
+
         <div class="cabecalho">
-            <p class = "textomaior">Adivinhe a cor!</p>
-            <p class = "textomenor">Clique na bolinha com o rgb correto e aumente sua pontuação!</p>
+            <p class="textomaior">Adivinhe a cor!</p>
+            <p class="textomenor">Clique na bolinha com o rgb correto e aumente sua pontuação!</p>
         </div>
 
-        <!-- Placar -->
         <p class="placartexto">PLACAR:</p>
         <div class="placar"></div>
 
-        <!-- input nr de bolinhas -->
         <div class="input">
             <span>Digite o numero de bolinhas:</span>
             <input type="text" class="inputtxt"><br>
-            <button class="botao" onclick="tamanho()">Gerar bolinhas!</button>
+            <button class="botao" onclick="numeroDeBolasColoridas()">Gerar bolinhas!</button>
         </div>
 
-        <!-- classe que armazena o rgb sorteado -->
-        <div class="rgb"></div><br>
+        <div class="rgbSorteado"></div><br>
 
-        <!-- classe que contem as bolas coloridas -->
         <div class="containerbola">
             <div class="bolaacolorir"></div>
             <div class="bolaacolorir"></div>
@@ -45,10 +40,8 @@
             <br style="clear: left;" />
         </div><br>
 
-        <!-- resposta do verificar -->
         <div class="resposta"></div><br>
 
-        <!-- botao pra reiniciar o jogo -->
         <button class="botao" onclick="resetar()">Reiniciar o jogo!</button>
 
     </main>

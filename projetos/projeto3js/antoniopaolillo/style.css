@@ -48,9 +48,9 @@ body{
     font-size: 25px;
 }
 .input{
-margin-top: 40px;
+    margin-top: 40px;
 }
-.rgb{
+.rgbSorteado{
     font-size: 25px;
     font-style: unset;
     margin-top: 40px;
