@@ -15,9 +15,9 @@ function geradorDeCartas() {
     var textoDigitadoSplit = textoDigitadoValue.split(" ");
 
     numeroCartas = document.getElementsByTagName('div');
-    numeroCartasLength = numCartas.length - 3;
+    numeroCartasLength = numeroCartas.length - 3;
 
-    apagarCartasAnteriores(numCartasLength);
+    apagarCartasAnteriores(numeroCartasLength);
 
     //gerando o numero de cartas
     for (let i = 0; i < textoDigitadoSplit.length; i++) {
