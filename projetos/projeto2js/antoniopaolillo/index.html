@@ -12,34 +12,28 @@
 
 </head>
 
-<body onload="geradorDeCores()">
-    <center>
-        <!-- cabecalho -->
+<body onload="criarTabelaPeloOnLoad()">
+
         <h1 class="cabecalho">PALETA DE CORES</h1>
 
         <div class="container">
             <div class="inputs">
-                <!-- inputs -->
-                <span class="texto">Digite numero de pixels do quadrado(entre 5 e 50):</span><br>
+                <span class="texto">Digite número de pixels do quadrado(entre 5 e 50):</span><br>
                 <input type="text" id="tamanhoquadrado"><br>
 
-                <button class="botoes" onclick="tamanhoQuadrado()">Gerar Tabela</button><br>
-                <button class="botoes" onclick="limparTela()">Limpar a tabela</button><br>
-                <button class="botoes" onclick="github()">Gerar perfil estilo GitHub</button><br>
+                <button class="botoes" onclick="gerandoTamanhoQuadrado()">Gerar Tabela</button><br>
+                <button class="botoes" onclick="limparTabela()">Limpar a tabela</button><br>
+                <button class="botoes" onclick="gitHubProfile()">Gerar perfil estilo GitHub</button><br>
 
-                <!-- amostra da cor selecionada -->
                 <div class="color">
                     <span class="textocor">COR SELECIONADA:</span>
                     <div class="corselecionada"></div>
                 </div>
             </div>
 
-            <!-- tabela principal -->
             <div class="tabelas">
-                <!-- paleta de cores -->
-                <table class="tabelafixa">
+                <table class="paleta-de-cores">
                     <tr>
-                        <th class="coresfixas"></th>
                         <th class="coresfixas"></th>
                         <th class="coresfixas"></th>
                         <th class="coresfixas"></th>
@@ -47,49 +41,11 @@
                     </tr>
                 </table>
 
-                <!-- tabela a ser preenchida -->
-                <table class="tabelaemmovimento">
-                    <tr>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                    </tr>
-                    <tr>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                    </tr>
-                    <tr>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                    </tr>
-                    <tr>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                    </tr>
-                    <tr>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                        <td class="elemento"></td>
-                    </tr>
-
+                <table class="tabelaQueSeraPreenchida">
+                
                 </table><br><br>
             </div>
         </div>
-
-    </center>
 
     <script src="script.js"></script>
 </body>

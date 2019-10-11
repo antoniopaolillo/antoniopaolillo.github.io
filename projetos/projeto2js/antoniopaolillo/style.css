@@ -1,12 +1,10 @@
-body{
-    background-image: url(background2.jpg);
-}
+
 .container{
     display: flex;
     flex-direction:row;
     justify-content: space-around;
 }
-.tabelaemmovimento{
+.tabelaQueSeraPreenchida{
     border-collapse: collapse;
 }
 .coresfixas{
@@ -23,27 +21,24 @@ body{
     border-color: black;
     border-style: solid;
     border-width: 1px;
-    background-color: white;
 }
 
 .corselecionada{
     width: 400px;
     height: 80px;
-    border-color: white;
     border-style: inset;
     border-width: 2px;
     text-align: center;
     margin-top: 80px;
+    background-color: black;
 }
 .texto{
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
-    color: white;
 }
 .color{
     font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
-    color: white;
     margin-top: 100px;
 }
 .botoes{
@@ -53,16 +48,15 @@ body{
     font-size: 20px;
     margin-top: 40px;
     border-radius: 15px;
-    background-color: white;
     color: black;
 }
 .tabelas{
     border-width: 3px;
-    border-color: white;
+
     border-style: solid;
 }
 .cabecalho{
-    color: white;
+
     margin-bottom: 7%;
 }
 #tamanhoquadrado{
