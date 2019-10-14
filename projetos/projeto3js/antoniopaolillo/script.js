@@ -1,8 +1,10 @@
-var numeroBola = document.getElementsByClassName("bolaacolorir");
-var numeroBolas = numeroBola.length;
-var corAdivinhar = document.getElementsByClassName("rgbSorteado")[0];
+let numeroBola, numeroBolas;
+var corAdivinhar = document.querySelector(".rgbSorteado");
+var resposta = document.querySelector(".resposta");
 
 function gerarCoresIniciais() {
+    numeroBola = document.getElementsByClassName("bolaacolorir");
+    numeroBolas = numeroBola.length;
     let colorindo = [];
 
     for (let i = 0; i < numeroBolas; i++) {
@@ -42,7 +44,6 @@ function add_event_onclick_cores(element) {
 }
 
 function verificiar_placar(cor_clicado) {
-    let resposta = document.getElementsByClassName("resposta")[0];
     let corMomento = corAdivinhar.innerHTML;
     if (cor_clicado == corMomento) {
         resposta.innerHTML = "Acertou!"
@@ -54,9 +55,8 @@ function verificiar_placar(cor_clicado) {
 
 
 function resetar() {
-    let resposta = document.getElementsByClassName("resposta")[0];
     let corMomento = corAdivinhar.innerHTML;
-    let placar = document.getElementsByClassName("placar")[0];
+    var placar = document.querySelector(".placar")
 
     corMomento.innerHTML = "";
     resposta.innerHTML = "";
@@ -67,8 +67,10 @@ function resetar() {
 
 function numeroDeBolasColoridas() {
     let inputDeBolinhas = document.getElementsByClassName("inputtxt")[0];
-    var nrDeBolinhas = inputDeBolinhas.value;
+    let nrDeBolinhas = inputDeBolinhas.value;
     let container = document.getElementsByClassName("containerbola")[0];
+    numeroBola = document.getElementsByClassName("bolaacolorir");
+    numeroBolas = numeroBola.length;
 
     //apagando todas
     for (let cont = 0; cont < numeroBolas; cont++) {
@@ -78,7 +80,7 @@ function numeroDeBolasColoridas() {
     //criando novas bolinhas
     for (let cont2 = 0; cont2 < nrDeBolinhas; cont2++) {
         let filhoNovo = document.createElement("div");
-        filhoNovo.setAttribute("class", "bolaacolorir")
+        filhoNovo.className = "bolaacolorir"
         container.appendChild(filhoNovo);
     }
     //atualizando numero parametro de bolas coloridas
@@ -94,7 +96,6 @@ var array = [];
 
 function placar() {
     let placarDiv = document.getElementsByClassName("placar")[0];
-    let resposta = document.getElementsByClassName("resposta")[0];
     let respostaHtml = resposta.innerHTML;
     let valor1 = 3;
     let valor2 = -1;
