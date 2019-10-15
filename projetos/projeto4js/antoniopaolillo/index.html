@@ -12,21 +12,17 @@
 
 </head>
 
-<body onload="geradorDeCartas()">
+<body onload="cards_generator()">
     <main>
-
         <div class="input">
-            <p class="h1">Mystery Letter</p>
+            <h1>Mystery Letter</h1>
             <p class="texto">Digite o texto a ser embaralhado pelas cartas magicas:</p>
-            <input type="text" id="inputtxt" value="Essa será minha carta misteriosa !">
-            <button class="botaogerador" onclick="geradorDeCartas()">Gerar carta!</button>
-            <div class="numerodecartas"></div>
+            <input type="text" id="card_text" value="Essa será minha carta misteriosa !">
+            <button class="card-generate-button" onclick="cards_generator()">Gerar carta!</button>
+            <div class="number-of-cards"></div>
         </div>
-
-        <div class="cartamisteriosa"></div>
+        <div class="card-deck"></div>
     </main>
-
-
     <script src="script.js"></script>
 </body>
 
