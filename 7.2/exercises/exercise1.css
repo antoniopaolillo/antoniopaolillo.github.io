@@ -1,0 +1,55 @@
+body {
+margin: 20px;
+}
+p, figcaption {
+font-size: 23px;
+}
+h1 {
+font-size: 50px;
+}
+h2 {
+
+}
+
+img {
+	max-width: 100%;
+}
+
+figure {
+	margin: 40px;
+}
+
+@media only screen and (min-width: 800px){
+ body{
+     background-color: red;
+     margin: 80px;
+ }
+ p, figcaption{
+     font-size: 25px;
+ }
+ .figure{
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     height: 50%;
+ }
+ img{
+    width: 65%;
+ }
+ figure {
+    margin: 10px; 
+    width: 45%;
+    text-align: center;
+}
+}
+
+@media only screen and (min-width: 1300px){
+   body{
+       background-color: blue;
+       margin: 180px;
+       max-width: 1920px;
+   } 
+   p, figcaption{
+    font-size: 35px;
+}
+}
