@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
     background-color: white;
     background-image: url("background.png");
@@ -35,10 +40,7 @@ body {
     margin: 70px;
   }
 
-  .classesobremim ul li {
-    display: inline;
-    float: left;
-  }
+
 
   .navigation-menu ul a {
     text-decoration: none;
@@ -52,15 +54,6 @@ body {
     height: 100px;
   }
   
-  .habilidades ul li {
-    display: inline;
-    float: left;
- }
-
-  .experiencias ul li {
-    display: inline;
-    float: right;
-  }
   .experiencias{
     margin-bottom: 200px;
     font-size: 25px;
@@ -84,12 +77,10 @@ body {
     margin-bottom: 50px;
   }
 
- /* <div class="navigation-menu">
-  <ul>
-    <li><a href="">
-        <!--<img src ="home.png" alt ="botaohome" width="50">-->HOME</a></li>
-    <li><a href="">HABILIDADES</a></li>
-    <li><a href="">EXPERIÊNCIAS</a></li>
-    <li><a href="#idlink">CONTATO</a></li>
-  </ul>
-</div>
+  .flex{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
