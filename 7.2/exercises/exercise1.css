@@ -2,13 +2,10 @@ body {
 margin: 20px;
 }
 p, figcaption {
-font-size: 23px;
+font-size: 29px;
 }
 h1 {
 font-size: 50px;
-}
-h2 {
-
 }
 
 img {
@@ -50,6 +47,6 @@ figure {
        max-width: 1920px;
    } 
    p, figcaption{
-    font-size: 35px;
+    font-size: 22px;
 }
 }
