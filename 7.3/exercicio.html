@@ -70,18 +70,195 @@
             width: 50px;
             height: 50px;
         }
-        #exercise-1{
-            animation-name: gren;
+
+        #exercise-1 {
+            animation-name: um;
             animation-delay: 1s;
             animation-duration: 3s;
         }
 
-        @keyframes gren {
-            from{
-                margin-left:0%;
+        #exercise-2 {
+            animation-name: um;
+            animation-delay: 2s;
+            animation-duration: 2s;
+        }
+
+        #exercise-3 {
+            animation-name: um;
+            animation-delay: 1s;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count: 2;
+        }
+
+        #exercise-4:hover {
+            animation-name: um;
+            animation-duration: 5s;
+        }
+
+        #section-5:hover #exercise-5 {
+            animation-name: um;
+            animation-duration: 5s;
+        }
+
+        #exercise-6-square:hover~#exercise-6 {
+            animation-name: dois;
+            animation-duration: 5s;
+        }
+
+        #exercise-7 {
+            animation-name: tres;
+            animation-duration: 10s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-8 {
+            animation-name: quatro;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-9 {
+            animation-name: cinco;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-10 {
+            animation-name: seis;
+            animation-duration: 10s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-11_1,
+        #exercise-11_2,
+        #exercise-11_3,
+        #exercise-11_4,
+        #exercise-11_5 {
+            animation-name: um;
+            animation-duration: 3s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-11_1 {
+            animation-timing-function: linear;
+        }
+
+        #exercise-11_2 {
+            animation-timing-function: ease-in-out;
+        }
+
+        #exercise-11_3 {
+            animation-timing-function: ease-in;
+        }
+
+        #exercise-11_4 {
+            animation-timing-function: ease-out;
+        }
+
+        #exercise-11_5 {
+            animation-timing-function: ease;
+        }
+
+        #exercise-12:active {
+            animation-name: oito;
+            animation-duration: 1s;
+        }
+
+        @keyframes um {
+            from {
+                margin-left: 0%;
             }
-            to{
+
+            to {
                 margin-left: 100%;
+            }
+
+        }
+
+        @keyframes dois {
+            from {
+                margin-right: 0%;
+            }
+
+            to {
+                margin-right: 100%;
+            }
+        }
+
+        @keyframes tres {
+            from {
+                width: 50px
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes quatro {
+            from {
+                background-color: red;
+            }
+
+            to {
+                background-color: yellow;
+            }
+
+        }
+
+        @keyframes cinco {
+            from {
+                background-color: red;
+            }
+
+            33% {
+                background-color: yellow;
+            }
+
+            66% {
+                background-color: blue;
+            }
+
+            to {
+                background-color: green;
+            }
+
+        }
+
+        @keyframes seis {
+            from {
+                background-color: red;
+                width: 50px;
+            }
+
+            33% {
+                background-color: yellow;
+            }
+
+            66% {
+                background-color: blue;
+            }
+
+            to {
+                background-color: green;
+                width: 100%;
+            }
+
+        }
+
+        @keyframes oito {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
             }
 
         }
