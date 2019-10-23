@@ -1,0 +1,44 @@
+body{
+    overflow: hidden;
+}
+.top1{
+    animation-duration: 5s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.top{
+    animation-duration: 5s;
+    animation-name: legal;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes legal {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 0%;
+        color: red;
+    }
+    
+    to {
+        margin-left: 100%;
+        font-size: 50%;
+        color: blue;
+    }
+    
+    60% {
+        font-size: 300%;
+        margin-left: 60%;
+        color: yellow;
+    }
+    
+}
