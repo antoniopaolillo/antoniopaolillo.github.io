@@ -1,14 +1,21 @@
-<!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="layout.css">
-    <title>ANTONIO'S PORTFOLIO</title>
-</head>
-
-<body>
-
-</body>
-
+  <head>
+    <style>
+      @keyframes skewing {
+        0% {
+          transform: skew(0deg);
+        }
+        100% {
+          transform: skew(180deg);
+        }
+      }
+      .eternal-skewing {
+        width: fit-content;
+        animation: skewing 3s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="eternal-skewing">Entortanto a frase!</div>
+  </body>
 </html>
