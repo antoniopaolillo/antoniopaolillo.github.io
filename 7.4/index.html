@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercise/7.4</title>
+    <style>
+        * {
+            padding: 0;
+            top: 0;
+            margin: 0;
+        }
+
+        img {
+            width: 300px;
+        }
+
+        .cartastops {
+            width: 218px;
+            height: 298px;
+            margin: 20px;
+        }
+
+        .primeiraAnimacao:hover {
+            animation: rotating 1s linear infinite;
+        }
+
+        .segundaAnimacao:hover {
+            animation: scale 3s linear infinite alternate;
+        }
+
+        .terceiraAnimacao:hover {
+            animation: skewing 4s linear infinite;
+        }
+
+        @keyframes skewing {
+            0% {
+                transform: skew(0deg);
+            }
+
+            100% {
+                transform: skew(180deg);
+            }
+        }
+
+        @keyframes scale {
+            0% {
+                transform: scale(1, 1);
+            }
+
+            100% {
+                transform: scale(2, 2);
+            }
+
+        }
+
+        @keyframes rotating {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="VersoDaCarta">
+        <img src="cartas/cartas/verso-da-carta.png">
+    </div>
+    <div class="cartas">
+
+    </div>
+
+    <script>
+        const cartas = ["cinco-de-ouros.png", "nove-de-espadas.png", "quatro-de-paus.png", "seis-de-copas.png", "sete-de-espadas.png", "sete-de-paus.png", "tres-de-ouros.png"];
+        const animacoes = ["primeiraAnimacao", "segundaAnimacao", "terceiraAnimacao"];
+
+        function gerarCarta() {
+            let imagem = document.getElementsByTagName("img")[0];
+            imagem.addEventListener("click", function () {
+                let cartaCriada = document.createElement("img");
+                let divCarta = document.getElementsByClassName("cartas")[0];
+                cartaCriada.className = "cartastops";
+                divCarta.appendChild(cartaCriada);
+                gerarImagemDaCarta(cartaCriada);
+                gerandoAnimacao(cartaCriada);
+            })
+        }
+        gerarCarta();
+
+        function gerarImagemDaCarta(cartaCriada) {
+            let indiceImagem = Math.floor(Math.random() * cartas.length);
+            cartaCriada.style.backgroundImage = "url(cartas/cartas/" + cartas[indiceImagem] + ")";
+        }
+
+        function gerandoAnimacao(cartaCriada) {
+            let indiceAnimacao = Math.floor(Math.random() * animacoes.length);
+            cartaCriada.classList.add(animacoes[indiceAnimacao]);
+        }
+    </script>
+
+</body>
+
+</html>
