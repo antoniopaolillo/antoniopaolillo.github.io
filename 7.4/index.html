@@ -24,44 +24,59 @@
         }
 
         .primeiraAnimacao:hover {
-            animation: rotating 1s linear infinite;
+            animation: rotating 1s linear;
         }
 
         .segundaAnimacao:hover {
-            animation: scale 3s linear infinite alternate;
+            animation: scale 3s linear alternate;
+            animation-iteration-count: 2;
         }
 
         .terceiraAnimacao:hover {
-            animation: skewing 4s linear infinite;
+            animation: skewing 4s linear;
         }
 
+        .quartaAnimacao:hover{
+            animation: opc 3s alternate;
+            animation-iteration-count: 2;
+        }
+
+        @keyframes opc {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+            
+        }
         @keyframes skewing {
-            0% {
+            from {
                 transform: skew(0deg);
             }
 
-            100% {
+            to {
                 transform: skew(180deg);
             }
         }
 
         @keyframes scale {
-            0% {
+            from {
                 transform: scale(1, 1);
             }
 
-            100% {
+            to {
                 transform: scale(2, 2);
             }
 
         }
 
         @keyframes rotating {
-            0% {
+            from {
                 transform: rotate(0deg);
             }
 
-            100% {
+           to {
                 transform: rotate(360deg);
             }
         }
@@ -78,7 +93,7 @@
 
     <script>
         const cartas = ["cinco-de-ouros.png", "nove-de-espadas.png", "quatro-de-paus.png", "seis-de-copas.png", "sete-de-espadas.png", "sete-de-paus.png", "tres-de-ouros.png"];
-        const animacoes = ["primeiraAnimacao", "segundaAnimacao", "terceiraAnimacao"];
+        const animacoes = ["primeiraAnimacao", "segundaAnimacao", "terceiraAnimacao", "quartaAnimacao"];
 
         function gerarCarta() {
             let imagem = document.getElementsByTagName("img")[0];
