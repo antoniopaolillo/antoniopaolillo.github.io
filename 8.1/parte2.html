@@ -52,6 +52,20 @@
         let lugar = document.getElementById("numerodecliques");
         lugar.innerHTML = clickCount;
     }
+
+    function trocador (outraPalavra, string){
+        string.replace("x", outraPalavra);
+        return string;
+    }
+    const skills = ["javascript" , "html", "css", "top", "legaldemais"];
+    function trocador2 () {
+        // let novosSkills = skills.sort();
+        let novasSkills = skills.sort() + trocador("topx", "legal");
+        return novasSkills;
+    }
+
+    console.log(trocador("topxxx", "legal"));
+    console.log(trocador2());
     
     </script>
 </body>
