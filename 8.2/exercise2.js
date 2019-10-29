@@ -76,8 +76,7 @@ const expected_result = {
 
 function authorWith3DotsOnName() {
   const regex = /^[A-Z]\.\W[A-Z]\.\W[A-Z]\.\W/i;
-  const livro = books.find(book => regex.test(book.author.name))
-  return livro;
+  return books.find(book => regex.test(book.author.name));
 }
 
 assert.deepEqual(authorWith3DotsOnName(), expected_result);
