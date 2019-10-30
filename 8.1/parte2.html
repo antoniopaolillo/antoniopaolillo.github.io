@@ -54,13 +54,13 @@
     }
 
     function trocador (outraPalavra, string){
-        string.replace("x", outraPalavra);
+        string.replace(/[x]/gi, outraPalavra);
         return string;
     }
+
     const skills = ["javascript" , "html", "css", "top", "legaldemais"];
     function trocador2 () {
-        // let novosSkills = skills.sort();
-        let novasSkills = skills.sort() + trocador("topx", "legal");
+        let novasSkills = skills.sort() + trocador("topxxxx", "legal");
         return novasSkills;
     }
 
