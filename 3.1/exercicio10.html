@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function conferir() {
+            let v1 = $("#pecas").val();
+            v2 = v1.toLowerCase();
+            switch (v2) {
+                case "peao":
+                    alert("é um peão!");
+                    break;
+                case "rei":
+                    alert("é um rei!");
+                    break;
+                case "rainha":
+                    alert("é uma rainha!");
+                    break;
+                case "cavalo":
+                    alert("é um cavalo!");
+                    break;
+                case "tremdolado":
+                    alert("é um tremzim!");
+                    break;
+                default:
+                    alert("voce digitou errado!");
+
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="text" class="qualquer" id="pecas" placeholder="digite aqui o valor 1..">
+    <button class="qualqueroutra" onclick="conferir()">conferir</button>
+</body>
+
+</html>
