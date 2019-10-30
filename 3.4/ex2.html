@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 3.4</title>
+    <style>
+        div {
+            border-color: black;
+            border-style: solid;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .main-content {
+            background-color: green;
+        }
+
+        .main-content .center-content {
+            background-color: red;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main-content .center-content p {
+            font-style: italic;
+        }
+
+        .main-content .left-content {
+            background-color: green;
+            width: 60%;
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .main-content .left-content .small-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 100%;
+        }
+
+        .main-content .right-content {
+            background-color: blue;
+            width: 60%;
+            margin-left: auto;
+            margin-right: 0;
+            margin: auto;
+        }
+
+        .main-content .description {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //exercicio 1
+        var uni1 = document.createElement("h1");
+        uni1.innerHTML = "Exercício 3.4 - JavaScript DOM";
+        document.body.appendChild(uni1);
+
+        //exercicio 2
+        var uni2 = document.createElement("div");
+        uni2.setAttribute("class", "main-content");
+        document.body.appendChild(uni2);
+
+        //exercicio 3
+        var uni3 = document.createElement("div");
+        uni3.setAttribute("class", "center-content");
+        document.getElementsByClassName("main-content")[0].appendChild(uni3);
+
+        //exercicio 4
+        var uni4 = document.createElement("p");
+        uni4.innerHTML = "texto teste";
+        document.getElementsByClassName("center-content")[0].appendChild(uni4);
+
+        //exercicio 5
+        var uni5 = document.createElement("div");
+        uni5.setAttribute("class", "left-content");
+        document.getElementsByClassName("main-content")[0].appendChild(uni5);
+
+        //exercicio 6
+        var uni6 = document.createElement("div");
+        uni6.setAttribute("class", "right-content");
+        document.getElementsByClassName("main-content")[0].appendChild(uni6);
+
+        //exercicio 7
+        var uni7 = document.createElement("img");
+        uni7.src = "https://picsum.photos/200";
+        uni7.setAttribute("class", "small-image");
+        document.getElementsByClassName("left-content")[0].appendChild(uni7);
+
+        //exercicio 8
+        var uni8 = document.createElement("ul");
+        var uni80 = document.createElement("li");
+        var uni81 = document.createElement("li");
+        var uni82 = document.createElement("li");
+        var uni83 = document.createElement("li");
+        var uni84 = document.createElement("li");
+        var uni85 = document.createElement("li");
+        var uni86 = document.createElement("li");
+        var uni87 = document.createElement("li");
+        var uni88 = document.createElement("li");
+        var uni89 = document.createElement("li");
+
+        uni80.innerHTML = "zero";
+        uni81.innerHTML = "um";
+        uni82.innerHTML = "dois";
+        uni83.innerHTML = "tres";
+        uni84.innerHTML = "quatro";
+        uni85.innerHTML = "cinco";
+        uni86.innerHTML = "seis";
+        uni87.innerHTML = "sete";
+        uni88.innerHTML = "oito";
+        uni89.innerHTML = "nove";
+
+        uni8.setAttribute("class", "lista");
+        document.getElementsByClassName("right-content")[0].appendChild(uni8);
+
+        document.getElementsByClassName("lista")[0].appendChild(uni80);
+        document.getElementsByClassName("lista")[0].appendChild(uni81);
+        document.getElementsByClassName("lista")[0].appendChild(uni82);
+        document.getElementsByClassName("lista")[0].appendChild(uni83);
+        document.getElementsByClassName("lista")[0].appendChild(uni84);
+        document.getElementsByClassName("lista")[0].appendChild(uni85);
+        document.getElementsByClassName("lista")[0].appendChild(uni86);
+        document.getElementsByClassName("lista")[0].appendChild(uni87);
+        document.getElementsByClassName("lista")[0].appendChild(uni88);
+        document.getElementsByClassName("lista")[0].appendChild(uni89);
+
+
+        //exercicio 9
+        var uni91 = document.createElement("h3");
+        var uni92 = document.createElement("h3");
+        var uni93 = document.createElement("h3");
+        document.getElementsByClassName("main-content")[0].appendChild(uni91);
+        document.getElementsByClassName("main-content")[0].appendChild(uni92);
+        document.getElementsByClassName("main-content")[0].appendChild(uni93);
+
+        //parte 2 dos exercicios
+
+        //exercicio 1
+        uni1.setAttribute("class", "title");
+
+        //exercicio 2
+        uni91.setAttribute("class", "description");
+        uni92.setAttribute("class", "description");
+        uni93.setAttribute("class", "description");
+
+        //exercicio 3
+        var uni32 = document.getElementsByClassName("left-content")[0];
+        document.getElementsByClassName("main-content")[0].removeChild(uni32);
+
+        //exercicio 6
+        document.getElementsByClassName("lista")[0].removeChild(uni88);
+        document.getElementsByClassName("lista")[0].removeChild(uni89);
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <p>DIGITE OS NOMES COM VIRGULA ENTRE ELES</p>
+    <input type="text" class="qualquer" id="pecas" placeholder="digite aqui o valor 1..">
+    <button class="qualqueroutra" onclick="">conferir</button>
+    
+    <div id="pai">
+        <div id="primeiroFilho"></div>
+        <div id="elementoOndeVoceEsta"> 
+            <div id="primeiroFilhoDoFilho"></div>
+            <div id="segundoEUltimoFilhoDoFilho"></div>
+        </div>
+        <div id="terceiroFilho"></div>
+        <div id="quartoEUltimoFilho"></div>
+    </div>
+
+
+    <script>
+        //primeira parte
+        console.log(document.querySelector("#elementoOndeVoceEsta"));
+        let txt = document.querySelector("#elementoOndeVoceEsta").parentNode;
+        txt.style.background = "green";
+        console.log(document.querySelector("#elementoOndeVoceEsta").firstChild);
+        console.log(document.querySelector("#pai").firstChild);
+        console.log(document.querySelector("#elementoOndeVoceEsta").previousElementSibling);
+        console.log(document.querySelector("#elementoOndeVoceEsta").nextElementSibling);
+        console.log(document.querySelector("#pai").childNodes[5]);
+        
+        
+        //segunda parte
+        var irmaopelemento = document.createElement("div");
+        irmaopelemento.innerHTML = "irmao que deu certo";
+        irmaopelemento.setAttribute("id", "irmao")
+        document.getElementById("pai").appendChild(irmaopelemento);
+
+        var filhoelemento = document.createElement("div");
+        filhoelemento.innerHTML = "filho que deu certo";
+        filhoelemento.setAttribute("id", "filhoel")
+        document.getElementById("elementoOndeVoceEsta").appendChild(filhoelemento);
+
+        var filhodofilho = document.createElement("div");
+        filhodofilho.innerHTML = "filho do filho do filho que deu certo";
+        filhodofilho.setAttribute("id", "filhodofilhomsm")
+        document.getElementById("primeiroFilhoDoFilho").appendChild(filhodofilho);
+
+        console.log(document.querySelector("#filhodofilhomsm").parentNode.parentNode.nextElementSibling);
+        
+        //terceira parte
+        console.log(document.getElementById("pai").removeChild(primeiroFilho));
+        console.log(document.getElementById("pai").removeChild(terceiroFilho));
+        console.log(document.getElementById("pai").removeChild(quartoEUltimoFilho));
+        console.log(document.getElementById("pai").removeChild(irmao));
+        console.log(document.getElementById("elementoOndeVoceEsta").removeChild(segundoEUltimoFilhoDoFilho));
+        console.log(document.getElementById("elementoOndeVoceEsta").removeChild(filhoel));
+    
+        
+    </script>
+
+</body>
+
+</html>
