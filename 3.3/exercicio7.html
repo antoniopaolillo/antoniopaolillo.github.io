@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function conferir() {
+            //variaveis de entrada
+            let v1 = $("#pecas1").val();
+            let v2 = $("#pecas2").val();
+            // let v3 = v2.toLowerCase();
+            // let v4 = v1.toLowerCase();
+            // variaveis finais
+            // let v5 = v3.split(""); pecas2
+            // let v6 = v4.split(""); peças1
+
+            // let tam = v6.length - v5.length;
+
+            // for (let i = 0; i < tam; i++) {
+            //     if (v6[tam + i] != v5[i]) {
+            //         alert("diferente");
+
+            //     } else {
+            //         let n = 1;
+            //         alert(n + "letra correta")
+            //         let++;
+            //     }
+            // }
+            //alert(typeof v2);
+            if (v1.endsWith(v2)) {
+                alert("ta certo!");
+            } else {
+                alert("ta errado meu patraum!");
+            }
+
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <input type="text" class="qualquer" id="pecas1" placeholder="digite aqui o valor 1..">
+    <input type="text" class="qualquer" id="pecas2" placeholder="digite aqui o valor 1..">
+    <button class="qualqueroutra" onclick="conferir()">conferir</button>
+</body>
+
+</html>
