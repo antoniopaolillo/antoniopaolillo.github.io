@@ -1,0 +1,30 @@
+<img src="foto.jpeg" alt="foto do antonio" width="300" id="foto">
+
+Antonio Francisco Paolillo Neto</em> </li><br><br><br><br><br>
+      <li> Brasileiro, nascido em São Lourenço, MG, residente em <strong>Belo Horizonte.</strong><br>
+        Estudante de <strong>Desenvolvimento de Software pela Trybe</strong> e Ciências da Computação pela Pontíficia
+        Universidade Católica de Minas Gerais.
+
+Conhecimento em linguagens front-end como JavaScript, HTML e CSS.<br>
+        Conhecimento em linguagens back-end como C, C++ e Java.<br>
+        Compreende Inglês e Espanhol em nível intermediario.<br>
+        Principais características: bom relacionamento em grupo, liderança e persistência.
+        <img src="habback.png" alt="funcionalidadesdesenvolvedor" width="300" id="backhab">
+
+        Quatro períodos de formação Acadêmica em Direito pela PUCMINAS.<br>
+        Formação Acadêmica em Ciencias da Computação em progresso pela PUCMINAS.<br>
+        Formação em Desenvolvimento de Software em progresso pela TRYBE.<br>
+        Diversos projetos realizados contidos no github.
+        <img src="xp.png" alt="experiencias" width="300" id="xpimage">
+
+        <div class="links" id="idlink">
+    <a target="_blank" href="https://github.com/antoniopaolillo"><img src="github.png" alt="linkdogithub"
+        width="50"></a>
+    <a target="_blank" href="https://www.linkedin.com/in/antoniopaolillo/"><img src="linkedin2.png" alt="linklinkedin"
+        width="50"></a>
+    <a target="_blank" href="https://instagram.com/toninhopaolillo"><img src="insta.png" alt="linkinstagrm"
+        width="50"></a>
+    <a target="_blank" href="mailto:antoniofpneto@outlook.com.br"><img src="outlook.png" alt="email" width="50"></a>
+    <a target="_blank" href="https://api.whatsapp.com/send?1=pt_BR&phone=5535998501613"><img src="wpp.png"
+        alt="whatsapp" width="50"></a>
+  </div>

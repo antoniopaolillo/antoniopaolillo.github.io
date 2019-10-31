@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercícios 7.3</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 90%;
+            height: 100px;
+            border: 1px solid red;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .flex-direction__column {
+            flex-direction: column;
+        }
+
+        .justify-content__space-between {
+            justify-content: space-between;
+        }
+
+        .justify-content__center {
+            justify-content: center;
+        }
+
+        .align-items__flex-start {
+            align-items: flex-start;
+        }
+
+        .automatic-box-height {
+            height: auto;
+        }
+
+        .ball {
+            border-radius: 100%;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .black {
+            background-color: black;
+        }
+
+        .medium {
+            width: 50px;
+            height: 50px;
+        }
+
+        #exercise-1 {
+            animation-name: um;
+            animation-delay: 1s;
+            animation-duration: 3s;
+        }
+
+        #exercise-2 {
+            animation-name: um;
+            animation-delay: 2s;
+            animation-duration: 2s;
+        }
+
+        #exercise-3 {
+            animation-name: um;
+            animation-delay: 1s;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count: 2;
+        }
+
+        #exercise-4:hover {
+            animation-name: um;
+            animation-duration: 5s;
+        }
+
+        #section-5:hover #exercise-5 {
+            animation-name: um;
+            animation-duration: 5s;
+        }
+
+        #exercise-6-square:hover~#exercise-6 {
+            animation-name: dois;
+            animation-duration: 5s;
+        }
+
+        #exercise-7 {
+            animation-name: tres;
+            animation-duration: 10s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-8 {
+            animation-name: quatro;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-9 {
+            animation-name: cinco;
+            animation-duration: 4s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-10 {
+            animation-name: seis;
+            animation-duration: 10s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-11_1,
+        #exercise-11_2,
+        #exercise-11_3,
+        #exercise-11_4,
+        #exercise-11_5 {
+            animation-name: um;
+            animation-duration: 3s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        #exercise-11_1 {
+            animation-timing-function: linear;
+        }
+
+        #exercise-11_2 {
+            animation-timing-function: ease-in-out;
+        }
+
+        #exercise-11_3 {
+            animation-timing-function: ease-in;
+        }
+
+        #exercise-11_4 {
+            animation-timing-function: ease-out;
+        }
+
+        #exercise-11_5 {
+            animation-timing-function: ease;
+        }
+
+        #exercise-12:active {
+            animation-name: oito;
+            animation-duration: 1s;
+        }
+
+        @keyframes um {
+            from {
+                margin-left: 0%;
+            }
+
+            to {
+                margin-left: 100%;
+            }
+
+        }
+
+        @keyframes dois {
+            from {
+                margin-right: 0%;
+            }
+
+            to {
+                margin-right: 100%;
+            }
+        }
+
+        @keyframes tres {
+            from {
+                width: 50px
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes quatro {
+            from {
+                background-color: red;
+            }
+
+            to {
+                background-color: yellow;
+            }
+
+        }
+
+        @keyframes cinco {
+            from {
+                background-color: red;
+            }
+
+            33% {
+                background-color: yellow;
+            }
+
+            66% {
+                background-color: blue;
+            }
+
+            to {
+                background-color: green;
+            }
+
+        }
+
+        @keyframes seis {
+            from {
+                background-color: red;
+                width: 50px;
+            }
+
+            33% {
+                background-color: yellow;
+            }
+
+            66% {
+                background-color: blue;
+            }
+
+            to {
+                background-color: green;
+                width: 100%;
+            }
+
+        }
+
+        @keyframes oito {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>
+            <section>
+                <div id="exercise-1" class="ball green medium"></div>
+            </section>
+        </li>
+        <li>
+            <section>
+                <div id="exercise-2" class="ball green medium"></div>
+            </section>
+        </li>
+        <li>
+            <section>
+                <div id="exercise-3" class="ball green medium"></div>
+            </section>
+        </li>
+        <li>
+            <section>
+                <div id="exercise-4" class="ball green medium"></div>
+            </section>
+        </li>
+        <li>
+            <section id="section-5">
+                <div id="exercise-5" class="ball green medium"></div>
+            </section>
+        </li>
+        <li>
+            <section class="justify-content__space-between">
+                <div id="exercise-6-square" class="blue medium"></div>
+                <div id="exercise-6" class="ball green medium"></div>
+            </section>
+        </li>
+        <li>
+            <section class="justify-content__center">
+                <div id="exercise-7" class="blue medium"></div>
+            </section>
+        </li>
+        <li>
+            <section class="justify-content__center">
+                <div id="exercise-8" class="red medium"></div>
+            </section>
+        </li>
+        <li>
+            <section class="justify-content__center">
+                <div id="exercise-9" class="red medium"></div>
+            </section>
+        </li>
+        <li>
+            <section class="justify-content__center">
+                <div id="exercise-10" class="red medium"></div>
+            </section>
+        </li>
+        <li>
+            <section class="flex-direction__column align-items__flex-start automatic-box-height">
+                <div id="exercise-11_1" class="red medium"></div>
+                <div id="exercise-11_2" class="blue medium"></div>
+                <div id="exercise-11_3" class="green medium"></div>
+                <div id="exercise-11_4" class="yellow medium"></div>
+                <div id="exercise-11_5" class="black medium"></div>
+            </section>
+        </li>
+        <li>
+            <section class="justify-content__center">
+                <div id="exercise-12" class="black medium"></div>
+            </section>
+        </li>
+    </ol>
+</body>
+
+</html>

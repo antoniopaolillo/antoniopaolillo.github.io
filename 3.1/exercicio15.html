@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function conferir() {
+            let v1 = $("#pecas1").val();
+            let v2 = 0, v3 = 0, v4 = 0;
+            if (v1 <= 1566.94 && v1 > 0) {
+                v2 = v1 * 0.08;
+            } else if (v1 <= 2594.92) {
+                v2 = v1 * 0.09;
+            } else if (v1 <= 5189.82) {
+                v2 = v1 * 0.11;
+            } else if (v1 > 5189.92) {
+                v2 = 570.88;
+            }
+
+
+            if (v1 >= 1903.98 && v1 <= 2826.65) {
+                v3 = v1 * 0.075;
+                v4 = 142.80;
+            } else if (v1 <= 3751.05 && v1 > 2826.65) {
+                v3 = v1 * 0.015;
+                v4 = 354.8;
+            } else if (v1 <= 4664.68 && v1 > 3751.05) {
+                v3 = v1 * 0.0225;
+                v4 = 636.13;
+            } else if (v1 > 4664.68) {
+                v3 = v1 * 0.0275;
+                v4 = 869.36;
+            }
+                let v5 = v1 - v2 - v3 + v4;
+                alert(v5);
+            }
+
+    </script>
+
+</head>
+
+<body>
+    <input type="text" class="qualquer" id="pecas1" placeholder="digite o Salário Bruto..">
+
+
+
+    <button class="qualqueroutra" onclick="conferir()">conferir</button>
+</body>
+
+</html>

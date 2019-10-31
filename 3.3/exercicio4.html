@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+        function conferir() {
+            let v1 = $("#pecas").val();
+            let v2 = v1.toLowerCase();
+            let v3 = v2.split(",");
+            let maior = 0;
+            let resultado = 0;
+            //alert(v3[1].length);
+            for (let c = 0; c < v3.length; c++) {
+                if (v3[c].length > maior) {
+
+                    maior = v3[c].length;
+                    resultado = v3[c];
+                }
+            }
+            alert(resultado);
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <p>DIGITE OS NOMES COM VIRGULA ENTRE ELES</p>
+    <input type="text" class="qualquer" id="pecas" placeholder="digite aqui o valor 1..">
+    <button class="qualqueroutra" onclick="conferir()">conferir</button>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function conferir() {
+            let v1 = $("#pecas1").val();
+            let v2 = $("#pecas2").val();
+            let v3 = $("#pecas3").val();
+
+            if (v1 % 2 == 0 || v2 % 2 == 0 || v3 % 2 == 0) {
+                alert("true");
+            } else {
+                alert("false");
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <input type="text" class="qualquer" id="pecas1" placeholder="digite aqui o valor..">
+    <input type="text" class="qualquer" id="pecas2" placeholder="digite aqui o valor..">
+    <input type="text" class="qualquer" id="pecas3" placeholder="digite aqui o valor..">
+    <button class="qualqueroutra" onclick="conferir()">conferir</button>
+</body>
+
+</html>

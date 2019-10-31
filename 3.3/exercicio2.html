@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function conferir() {
+            let v1 = $("#pecas").val();
+            let v2 = v1.split("");
+            let maior = 0;
+            let indice = 0;
+
+            for (var c = 0; c < v2.length; c++) {
+                if (v2[c] > maior) {
+                    maior = v2[c];
+                    indice = c;
+                }
+            }
+            alert(indice);
+        }
+        
+    </script>
+
+</head>
+
+<body>
+    <input type="text" class="qualquer" id="pecas" placeholder="digite aqui o valor 1..">
+    <button class="qualqueroutra" onclick="conferir()">conferir</button>
+</body>
+
+</html>

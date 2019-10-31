@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="texto">
+    <input type="button" onclick="fatorial()" value="calcular">
+    <input type="text" id="palavras">
+    <input type="button" onclick="palavra()" value="calcular">
+    <input type="button" id="btn" value="numero de cliques">
+    <p id="numerodecliques"></p>
+    <script>
+        
+    function fatorial(){
+        let numero = document.getElementById("texto").value;
+        let resultado = 1;
+        for(let i = 1; i <= numero; i++){
+            resultado = resultado * i;
+        }
+        alert(resultado);
+    }
+
+    function palavra(){
+        let resultado = 0;
+        let tamanhoPalavra = 0;
+        let palavras = document.getElementById("palavras").value.split(" ");
+        for(let i = 0; i < palavras.length; i++){
+            if(palavras[i].length > tamanhoPalavra){
+                tamanhoPalavra = palavras[i].length;
+                resultado = palavras[i];
+            }
+        }
+        alert(resultado);
+    }
+
+    function numeroDeCliques(){
+        let clickCount = 0;
+        let botao = document.getElementById("btn");
+        botao.addEventListener("click", () => {
+            clickCount++;
+            mostrarNumeroDeCliques(clickCount);
+        })
+    }
+    
+    numeroDeCliques();
+
+    function mostrarNumeroDeCliques (clickCount){
+        let lugar = document.getElementById("numerodecliques");
+        lugar.innerHTML = clickCount;
+    }
+
+    function trocador (outraPalavra, string){
+        string.replace(/[x]/gi, outraPalavra);
+        return string;
+    }
+
+    const skills = ["javascript" , "html", "css", "top", "legaldemais"];
+    function trocador2 () {
+        let novasSkills = skills.sort() + trocador("topxxxx", "legal");
+        return novasSkills;
+    }
+
+    console.log(trocador("topxxx", "legal"));
+    console.log(trocador2());
+    
+    </script>
+</body>
+</html>
