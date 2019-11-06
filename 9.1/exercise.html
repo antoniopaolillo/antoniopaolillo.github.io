@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        body p {
+            margin-left: auto;
+            margin-right: auto;
+            width: 40em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <select id="backgroundColor" onchange="color()">
+            <option value="green">Green</option>
+            <option value="yellow" selected>Yellow</option>
+            <option value="blue">Blue</option>
+        </select>
+        <select id="backgroundText" onchange="txt()">
+            <option value="black">Black</option>
+            <option value="white" selected>White</option>
+            <option value="red">Red</option>
+        </select>
+        <select id="fontSize" onchange="fontSizes()">
+            <option value="20px">20 px</option>
+            <option value="30px" selected>30 px</option>
+            <option value="40px">40px </option>
+        </select>
+    </section>
+    <p>
+        What is Lorem Ipsum?
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
+
+        Why do we use it?
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+        accident, sometimes on purpose (injected humour and the like).
+
+
+        Where does it come from?
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+        College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+        going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum
+        comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
+        Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.
+        The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32
+        Why do we use it?
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+        accident, sometimes on purpose (injected humour and the like).
+
+
+        Where does it come from?
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+        College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+        going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum
+        comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
+        Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.
+        The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+        1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original
+        form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+        Where can I get some?
+        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+        some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
+        to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of
+        text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this
+        the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+        of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsu
+    </p>
+    <section>
+        <select id="space" onchange="line2()">
+            <option value="5px">5px</option>
+            <option value="15px" selected>15px</option>
+            <option value="20px">20px</option>
+        </select>
+        <select id="fontType" onchange="font()">
+            <option value="Courier New">Courier New</option>
+            <option value="Courier" selected>Courier</option>
+            <option value="monospace">monospace</option>
+        </select>
+    </section>
+
+    <script>
+        const backgroundColor = document.getElementById("backgroundColor")
+        const backgroundText = document.getElementById("backgroundText")
+        const fontSize = document.getElementById("fontSize")
+        const line = document.getElementById("space")
+        const family = document.getElementById("fontType")
+        function color() {
+            let newCor = backgroundColor.value
+            document.body.style.backgroundColor = newCor
+            if (localStorage.backgroundColor) {
+                localStorage.backgroundColor = newCor
+            } else {
+                localStorage.setItem("backgroundColor", newCor)
+            }
+        }
+        function txt() {
+            let newText = backgroundText.value
+            document.body.style.color = newText
+            if (localStorage.color) {
+                localStorage.color = newText
+            } else {
+                localStorage.setItem("color", newText)
+            }
+        }
+        function fontSizes() {
+            let newSize = fontSize.value
+            document.body.style.fontSize = newSize
+            if (localStorage.sizess) {
+                localStorage.sizess = newSize
+            } else {
+                localStorage.setItem("sizess", newSize)
+            }
+        }
+        function line2() {
+            let newLine = line.value
+            document.body.style.lineHeight = newLine
+            if (localStorage.line) {
+                localStorage.line = newLine
+            } else {
+                localStorage.setItem("line", newLine)
+            }
+        }
+        function font() {
+            let newFont = family.value
+            document.body.style.fontFamily = newFont
+            if (localStorage.font) {
+                localStorage.font = newFont
+            } else {
+                localStorage.setItem("font", newFont)
+            }
+        }
+        function showElements() {
+            document.body.style.backgroundColor = localStorage.backgroundColor
+            document.body.style.color = localStorage.color
+            document.body.style.fontSize = localStorage.sizess
+            document.body.style.lineHeight = localStorage.line
+            document.body.style.fontFamily = localStorage.font
+        }
+        showElements()
+    </script>
+</body>
+
+</html>
