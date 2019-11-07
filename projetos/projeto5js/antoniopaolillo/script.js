@@ -49,6 +49,7 @@ function apagarTodasTarefas() {
         let tarefa = document.getElementsByClassName('tarefa')[i];
         elementoPai.removeChild(tarefa);
     }
+    tarefaSelecionada = "";
 }
 
 function apagarTarefasCompletas() {
@@ -61,10 +62,12 @@ function apagarTarefasCompletas() {
             elementoPai.removeChild(tarefaCompleta);
         }
     }
+    tarefaSelecionada = "";
 }
 
 function apagarTarefaSelecionada() {
     elementoPai.removeChild(tarefaSelecionada);
+    tarefaSelecionada = "";
 }
 
 function subirTarefa() {
