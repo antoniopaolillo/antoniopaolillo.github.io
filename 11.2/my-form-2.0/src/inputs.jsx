@@ -2,7 +2,7 @@ import React from "react";
 
 class Inputs extends React.Component {
   render() {
-    const { id, name, maxLength, type } = this.props;
+    const { id, name, maxLength, type, style, onChange } = this.props;
 
     return (
       <div>
@@ -13,6 +13,8 @@ class Inputs extends React.Component {
           name={name}
           id={id}
           maxLength={maxLength}
+          style={style}
+          onChange={onChange}
         />
       </div>
     );

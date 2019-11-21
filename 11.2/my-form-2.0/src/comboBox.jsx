@@ -2,8 +2,9 @@ import React from "react";
 
 class comboBox extends React.Component {
   render() {
+    const { onChange, id } = this.props;
     return (
-      <select name="estados-brasil">
+      <select id={id} onChange={onChange}>
         <option value="AC">Acre</option>
         <option value="AL">Alagoas</option>
         <option value="AP">Amapá</option>
