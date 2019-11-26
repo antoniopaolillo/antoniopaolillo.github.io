@@ -1,51 +1,14 @@
 import React, { Component } from 'react';
-import Picture from './Picture';
-import Button from './Button';
-import PropTypes from "prop-types";
-
+import Top from "./top";
 class App extends Component {
-  constructor(props) {
-    super(props);
-this.state = {
-      pictures: [
-        {id: 1, src: 'http://via.placeholder.com/200x100'},
-        {id: 2, src: 'http://via.placeholder.com/400x200'},
-        {id: 3, src: 'http://via.placeholder.com/200x100'}
-      ],
-      currentPic: null
-    };
-this.setCurrentPic = this.setCurrentPic.bind(this);
-  }
-setCurrentPic(id) {
-    this.setState({currentPic: id});
-  }
-render () {
+  
+  render() {
     return (
       <div>
-        <div className='squares'>
-          {this.state.pictures.map((picture) => {
-            return (
-              <Picture key={picture.id} src={picture.src}>
-                <Button
-                  pictureSrc={picture.src}
-                  setCurrentPic={this.setCurrentPic}
-                  id={picture.id}
-                />
-              </Picture>
-            )
-          })}
-        </div>
-        <div>
-          <p>Current selected picture ID is {this.state.currentPic}</p>
-        </div>
+        <Top array={[{id: 0, item: "flamengo"}, {id: 1, item: "eh"}, {id: 2, item: "foda"}]} />
       </div>
     )
   }
 }
-
-Picture.propTypes = {
-  alt: PropTypes.string.isRequired,
-  height: PropTypes.number.isRequired
-};
 
 export default App;
