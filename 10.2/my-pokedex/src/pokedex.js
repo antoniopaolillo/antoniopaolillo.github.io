@@ -4,7 +4,7 @@ import Pokemon from './pokemon';
 
 class Pokedex extends React.Component {
     render () {
-        return Dados.map(poke => <Pokemon passed={poke}/>);
+        return Dados.map(poke => <Pokemon  key={poke.id} passed={poke}/>);
     }
 }
 

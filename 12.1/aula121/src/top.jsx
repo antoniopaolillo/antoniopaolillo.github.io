@@ -18,7 +18,7 @@ class Top extends React.Component {
   }
 
   onClick(newName) {
-      this.setState({name: newName})
+    this.setState({ name: newName });
   }
 
   render() {
@@ -37,7 +37,7 @@ class Top extends React.Component {
 
 Top.propTypes = {
   array: PropTypes.arrayOf(
-    PropTypes.exact({
+    PropTypes.shape({
       id: PropTypes.number,
       item: PropTypes.string
     })
