@@ -8,6 +8,7 @@ class Input extends Component {
     this.state = {
       task: '',
     };
+    this.updateContext = this.updateContext.bind(this);
   }
 
   changeHandler(event) {
@@ -20,18 +21,20 @@ class Input extends Component {
     const { tasks, changeTasks } = this.context;
     const newTasks = [...tasks, this.state.task];
     changeTasks(newTasks);
+    this.setState({
+      task: '',
+    })
   }
 
   render() {
-      console.log(this.context)
     return (
       <div>
         <input
+          value={this.state.task}
           onChange={(e) => this.changeHandler(e)}
           placeholder="adicione a tarefa"
         />
-        <button onClick={this.updateContext()}></button>
-        lalala
+        <button onClick={this.updateContext}>adicionar</button>
       </div>
     );
   }

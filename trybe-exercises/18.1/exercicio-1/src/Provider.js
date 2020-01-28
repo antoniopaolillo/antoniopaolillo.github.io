@@ -7,6 +7,7 @@ class Provider extends React.Component {
     this.state = {
       tasks: [],
     };
+    this.changeTasks = this.changeTasks.bind(this);
   }
   changeTasks(newTasks) {
     this.setState({

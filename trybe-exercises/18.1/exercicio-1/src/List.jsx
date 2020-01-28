@@ -8,9 +8,7 @@ class List extends React.Component {
   }
 
   render() {
-      console.log(this.context);
     return <ul>{this.generateTasks()}</ul>;
-    // return <div>nadanao</div>
   }
 }
 
