@@ -6,12 +6,16 @@ function App() {
   const generateRandomNumber = () => setRandomNumber(Math.random() * 100);
 
   useEffect(() => {
-    document.title = randomNumber;
-  });
+    const timer = setInterval(generateRandomNumber, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   useEffect(() => {
-    setTimeout(() => generateRandomNumber(), 10000);
+    document.title = randomNumber;
   }, [randomNumber]);
+
   return (
     <div className="App">
       <button onClick={generateRandomNumber}>gerar Outro numero</button>

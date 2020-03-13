@@ -1,0 +1,30 @@
+.notPlayed {
+    width: 150px;
+    height: 150px;
+    border: 2px black solid;
+}
+
+.play1 {
+    width: 150px;
+    height: 150px;
+    border: 2px black solid;
+    background-image: url('iconx.png');
+    background-position:center;
+    background-size: 150px;
+}
+
+.play2 {
+    width: 150px;
+    height: 150px;
+    border: 2px black solid;
+    background-image: url('circle.png');
+    background-position:center;
+    background-size: 150px;
+}
+
+.container {
+    display: flex;
+    width: 462px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
