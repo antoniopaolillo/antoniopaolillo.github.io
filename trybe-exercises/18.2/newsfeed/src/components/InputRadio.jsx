@@ -1,19 +1,23 @@
 import React, { useContext } from 'react';
 import context from '../context/context';
 function InputRadio() {
-  const { setEndpoint, endpoint } = useContext(context);
+  const { setEndpoint, setData } = useContext(context);
+  function updateInput(value) {
+    setData();
+    setEndpoint(value);
+  }
   return (
     <div>
       Top-headlines
       <input
-        onClick={() => setEndpoint('top-headlines')}
+        onClick={() => updateInput('top-headlines')}
         type="radio"
         name="endpoint"
-        checked={endpoint === 'top-headlines' ? true : false}
+        defaultChecked
       />
       Everything
       <input
-        onClick={() => setEndpoint('everything')}
+        onClick={() => updateInput('everything')}
         type="radio"
         name="endpoint"
       />
