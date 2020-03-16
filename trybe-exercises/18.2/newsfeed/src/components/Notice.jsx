@@ -3,7 +3,7 @@ import './Notice.css';
 
 function Notice({ data }) {
   return (
-    <div className="notice-container">
+    <div className="notice-container" data-testid={data.title}>
       <h2>{data.title}</h2>
       <h3>{data.author}</h3>
       <h4>{data.description}</h4>

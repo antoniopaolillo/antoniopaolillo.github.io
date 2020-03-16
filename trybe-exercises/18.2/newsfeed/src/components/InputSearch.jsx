@@ -10,8 +10,8 @@ function InputSearch() {
   }
   return (
     <div>
-      <input onChange={(e) => setText(e.target.value)} type="text" />
-      <button onClick={text !== '' ? updateInput : null} type="button">
+      <input data-testid="search-input" onChange={(e) => setText(e.target.value)} type="text" />
+      <button data-testid="btn-input-search" onClick={text !== '' ? updateInput : null} type="button">
         Search
       </button>
     </div>

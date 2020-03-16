@@ -3,31 +3,18 @@ import InputSearch from './InputSearch';
 import InputRadio from './InputRadio';
 import context from '../context/context';
 function Header() {
-  const {
-    endpoint,
-    isBeenUpdated,
-    isStoped,
-    setIsStoped,
-    startInterval,
-    stopInterval,
-  } = useContext(context);
+  const { endpoint, isBeenUpdated, isStoped, setIsStoped } = useContext(
+    context,
+  );
 
-  function startOrStop() {
-    if (isStoped) {
-      setIsStoped(false);
-      return startInterval();
-    }
-    setIsStoped(true);
-    clearInterval(startInterval);
-  }
   return (
     <header>
-      <p>Endpoint: {endpoint}</p>
+      <p data-testid="endpoint">Endpoint: {endpoint}</p>
       <InputSearch />
       <InputRadio />
-      {isBeenUpdated ? 'Updating...' : ''}
-      <button onClick={startOrStop}>
-        UPDATE: {isStoped ? 'Resume' : 'Stop'}
+      <p data-testid="been-updating">{isBeenUpdated ? 'Updating...' : ''}</p>
+      <button data-testid="btn-update" onClick={() => setIsStoped(!isStoped)}>
+        UPDATE: {!isStoped ? 'Resume' : 'Stop'}
       </button>
     </header>
   );

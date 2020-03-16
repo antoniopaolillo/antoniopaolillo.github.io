@@ -11,6 +11,7 @@ function InputRadio() {
       Top-headlines
       <input
         onClick={() => updateInput('top-headlines')}
+        data-testid="radio-btn-top-headlines"
         type="radio"
         name="endpoint"
         defaultChecked
@@ -18,6 +19,7 @@ function InputRadio() {
       Everything
       <input
         onClick={() => updateInput('everything')}
+        data-testid="radio-btn-everything"
         type="radio"
         name="endpoint"
       />
