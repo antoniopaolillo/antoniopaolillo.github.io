@@ -1,39 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import context from './context';
+import {getData} from '../api';
 
 function Provider({ children }) {
   const [endpoint, setEndpoint] = useState('top-headlines');
-  const [textSearch, setTextSearch] = useState('flamengo');
+  const [textSearch, setTextSearch] = useState('corona');
   const [data, setData] = useState();
   const [isBeenUpdated, setIsBeenUpdated] = useState(false);
   const [isStoped, setIsStoped] = useState(true);
-  const [method, setMethod] = useState();
+  const [delay, setDelay] = useState(10000);
 
-  function interval() {
-    if (isStoped) {
-      const methodTwo = setInterval(getData, 10000, endpoint, textSearch);
-      setMethod(methodTwo);
-    } else {
-      return clearInterval(method);
-    }
-  }
-
-  async function getData(endpoint, textSearch) {
-    setIsBeenUpdated(true);
-    await fetch(
-      `http://newsapi.org/v2/${endpoint}?q=${textSearch}&apiKey=${localStorage.feedKey}`,
-    )
-      .then((response) => response.json())
-      .then((data) => setData(data));
-    setIsBeenUpdated(false);
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
+  
+    // Remember the latest callback.
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+  
+    // Set up the interval.
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
   }
 
   useEffect(() => {
-    interval();
+    if(!isStoped) {
+      return setDelay(null);
+    }
+    setDelay(delay !== null ? delay + 1 : 10000);
   }, [isStoped]);
 
+  useInterval(() => getData(endpoint, textSearch, setData, setIsBeenUpdated), delay);
   useEffect(() => {
-    getData(endpoint, textSearch);
+    getData(endpoint, textSearch, setData, setIsBeenUpdated);
   }, [endpoint, textSearch]);
 
   const obj = {

@@ -5,7 +5,6 @@ import './Notice.css';
 
 function Feed() {
   const { data } = useContext(context);
-  console.log(data);
   if (!data) return <div data-testid="loading">LOADING...</div>;
   return (
     <div data-testid="feed-container" className="feed-container">
