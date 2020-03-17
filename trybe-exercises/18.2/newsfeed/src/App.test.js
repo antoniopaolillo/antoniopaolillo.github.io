@@ -4,13 +4,11 @@ import {
   fireEvent,
   cleanup,
   waitForDomChange,
+  getByText,
 } from '@testing-library/react';
-import Provider from './context/Provider';
 import App from './App';
 import * as api from './api';
-import { firstResult, secondResult, thirdResult } from './service';
-
-// afterEach(() => api.getData.mockReset());
+import { firstResult, secondResult, thirdResult, result } from './service';
 
 describe('initial page', () => {
   afterEach(cleanup);
@@ -57,11 +55,44 @@ describe('initial page', () => {
 describe('after page loads', () => {
   test('texts loading... and updating... shoud not be in the document', async () => {
     jest.mock('./api');
-    api.getData = jest.fn().mockResolvedValue(firstResult);
-    const { queryByTestId } = render(<App />);
+    api.getData = jest.fn().mockResolvedValue(secondResult);
+    const { queryByTestId, getByText } = render(<App />);
     expect(queryByTestId('loading')).toBeInTheDocument();
     await waitForDomChange();
+    expect(getByText('Space Photos of the Week: Perfectly Safe Celestial Coronas')).toBeInTheDocument();
     expect(queryByTestId('loading')).not.toBeInTheDocument();
     expect(queryByTestId('been-updating').innerHTML).not.toBe('Updating...');
+  });
+
+  test('all elements from data should be in the document', async () => {
+    jest.mock('./api');
+    api.getData = jest.fn().mockResolvedValue(result);
+    const { queryByText, getByAltText } = render(<App />);
+    await waitForDomChange();
+    for(let i = 0; i < result.articles.length; i++) {
+      expect(queryByText(result.articles[i].title)).toBeInTheDocument();
+      expect(queryByText(result.articles[i].author)).toBeInTheDocument();
+      expect(queryByText(result.articles[i].publishedAt)).toBeInTheDocument();
+      expect(queryByText(result.articles[i].description)).toBeInTheDocument();
+      expect(getByAltText(result.articles[i].urlToImage)).toBeInTheDocument();
+    }
+  });
+
+  test('click on radio button should checked', async () => {
+    const { getByTestId } = render(<App />);
+    const buttonEverything = getByTestId('radio-btn-everything');
+    expect(buttonEverything.checked).toBe(false);
+    fireEvent.click(buttonEverything);
+    expect(buttonEverything.checked).toBe(true);
+  });
+
+  test('change value of input text should change the page', async () => {
+    const { getByTestId } = render(<App />);
+    await waitForDomChange();
+    const inputToSearch = getByTestId('search-input');
+    const btnInputSearch = getByTestId('btn-input-search');
+    expect(inputToSearch.value).toBe('');
+    fireEvent.change(inputToSearch, { target: { value: 'flamengo'}});
+    fireEvent.click(btnInputSearch);
   });
 });

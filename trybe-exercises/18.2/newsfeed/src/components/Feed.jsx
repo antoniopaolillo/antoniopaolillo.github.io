@@ -8,8 +8,8 @@ function Feed() {
   if (!data) return <div data-testid="loading">LOADING...</div>;
   return (
     <div data-testid="feed-container" className="feed-container">
-      {data.articles.map((article) => (
-        <Notice key={article.title} data={article} />
+      {data.articles.map((article, index) => (
+        <Notice key={`${article.title}-${index}`} data={article} />
       ))}
     </div>
   );

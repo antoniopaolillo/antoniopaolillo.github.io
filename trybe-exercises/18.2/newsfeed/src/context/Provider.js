@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import context from './context';
-import {getData} from '../api';
+import { getData } from '../api';
 
 function Provider({ children }) {
   const [endpoint, setEndpoint] = useState('top-headlines');
@@ -37,9 +37,13 @@ function Provider({ children }) {
     setDelay(delay !== null ? delay + 1 : 10000);
   }, [isStoped]);
 
-  useInterval(() => getData(endpoint, textSearch, setData, setIsBeenUpdated), delay);
+  useInterval(() => getData(endpoint, textSearch).then(res => setData(res)), delay);
   useEffect(() => {
-    getData(endpoint, textSearch, setData, setIsBeenUpdated);
+    setIsBeenUpdated(true);
+    getData(endpoint, textSearch).then(res => {
+      setData(res);
+      setIsBeenUpdated(false);
+    });
   }, [endpoint, textSearch]);
 
   const obj = {
