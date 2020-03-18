@@ -37,13 +37,15 @@ function Provider({ children }) {
     setDelay(delay !== null ? delay + 1 : 10000);
   }, [isStoped]);
 
-  useInterval(() => getData(endpoint, textSearch).then(res => setData(res)), delay);
-  useEffect(() => {
+  useInterval(update, delay);
+
+  async function update() {
     setIsBeenUpdated(true);
-    getData(endpoint, textSearch).then(res => {
-      setData(res);
-      setIsBeenUpdated(false);
-    });
+    await getData(endpoint, textSearch).then(res => setData(res)); 
+    setIsBeenUpdated(false);
+  }
+  useEffect(() => {
+    getData(endpoint, textSearch).then(res => setData(res));
   }, [endpoint, textSearch]);
 
   const obj = {

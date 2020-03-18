@@ -4,7 +4,6 @@ import {
   fireEvent,
   cleanup,
   waitForDomChange,
-  getByText,
 } from '@testing-library/react';
 import App from './App';
 import * as api from './api';
@@ -17,7 +16,7 @@ describe('initial page', () => {
     expect(getByText('ANTONIO NOTICES')).toBeInTheDocument();
   });
 
-  test('the endpoint should be top-headlins', () => {
+  test('the endpoint should be top-headlines', () => {
     const { getByTestId } = render(<App />);
     expect(getByTestId('endpoint').innerHTML).toBe('Endpoint: top-headlines');
   });
@@ -37,8 +36,8 @@ describe('initial page', () => {
   });
 
   test('expect text Updating... to be in the document', () => {
-    const { getByTestId } = render(<App />);
-    expect(getByTestId('been-updating').innerHTML).toBe('Updating...');
+    const { queryByTestId } = render(<App />);
+    expect(queryByTestId('been-updating').innerHTML).not.toBe('Updating...');
   });
 
   test('expect btn of update text to be UPDATE: Stop', () => {
@@ -59,7 +58,9 @@ describe('after page loads', () => {
     const { queryByTestId, getByText } = render(<App />);
     expect(queryByTestId('loading')).toBeInTheDocument();
     await waitForDomChange();
-    expect(getByText('Space Photos of the Week: Perfectly Safe Celestial Coronas')).toBeInTheDocument();
+    expect(
+      getByText('Space Photos of the Week: Perfectly Safe Celestial Coronas'),
+    ).toBeInTheDocument();
     expect(queryByTestId('loading')).not.toBeInTheDocument();
     expect(queryByTestId('been-updating').innerHTML).not.toBe('Updating...');
   });
@@ -69,7 +70,7 @@ describe('after page loads', () => {
     api.getData = jest.fn().mockResolvedValue(result);
     const { queryByText, getByAltText } = render(<App />);
     await waitForDomChange();
-    for(let i = 0; i < result.articles.length; i++) {
+    for (let i = 0; i < result.articles.length; i++) {
       expect(queryByText(result.articles[i].title)).toBeInTheDocument();
       expect(queryByText(result.articles[i].author)).toBeInTheDocument();
       expect(queryByText(result.articles[i].publishedAt)).toBeInTheDocument();
@@ -78,21 +79,84 @@ describe('after page loads', () => {
     }
   });
 
-  test('click on radio button should checked', async () => {
+  test('click on radio button should call function getData', async () => {
+    jest.mock('./api');
+    api.getData = jest.fn().mockResolvedValue(result);
     const { getByTestId } = render(<App />);
     const buttonEverything = getByTestId('radio-btn-everything');
+    expect(api.getData).toHaveBeenCalledTimes(1);
     expect(buttonEverything.checked).toBe(false);
+
     fireEvent.click(buttonEverything);
     expect(buttonEverything.checked).toBe(true);
+    await waitForDomChange();
+
+    expect(api.getData).toHaveBeenCalledTimes(2);
   });
 
-  test('change value of input text should change the page', async () => {
+  test('click on everything and then top-headlines should call function getData', async () => {
+    jest.mock('./api');
+    api.getData = jest.fn().mockResolvedValue(result);
     const { getByTestId } = render(<App />);
+    const buttonEverything = getByTestId('radio-btn-everything');
+    const buttonTopHeadlines = getByTestId('radio-btn-top-headlines');
+    expect(api.getData).toHaveBeenCalledTimes(1);
+    expect(buttonEverything.checked).toBe(false);
+    expect(buttonTopHeadlines.checked).toBe(true);
+
+    fireEvent.click(buttonEverything);
     await waitForDomChange();
+    expect(buttonEverything.checked).toBe(true);
+    expect(buttonTopHeadlines.checked).toBe(false);
+    expect(api.getData).toHaveBeenCalledTimes(2);
+    
+    fireEvent.click(buttonTopHeadlines);
+    await waitForDomChange();
+    expect(buttonEverything.checked).toBe(false);
+    expect(buttonTopHeadlines.checked).toBe(true);
+    expect(api.getData).toHaveBeenCalledTimes(3);
+
+  });
+
+  test('change value of input text should change the page and call getData', async () => {
+    jest.mock('./api');
+    api.getData = jest.fn().mockResolvedValue(result);
+    const { getByTestId } = render(<App />);
     const inputToSearch = getByTestId('search-input');
     const btnInputSearch = getByTestId('btn-input-search');
+
+    expect(api.getData).toHaveBeenCalledTimes(1);
     expect(inputToSearch.value).toBe('');
-    fireEvent.change(inputToSearch, { target: { value: 'flamengo'}});
+    fireEvent.change(inputToSearch, { target: { value: 'flamengo' } });
     fireEvent.click(btnInputSearch);
+
+    await waitForDomChange();
+    expect(api.getData).toHaveBeenCalledTimes(2);
+  });
+
+  test('in case value of input text be empty, button should do nothing', async () => {
+    jest.mock('./api');
+    api.getData = jest.fn().mockResolvedValue(result);
+    const { getByTestId } = render(<App />);
+    const inputToSearch = getByTestId('search-input');
+    const btnInputSearch = getByTestId('btn-input-search');
+
+    expect(api.getData).toHaveBeenCalledTimes(1);
+    expect(inputToSearch.value).toBe('');
+    fireEvent.click(btnInputSearch);
+
+    await waitForDomChange();
+    expect(api.getData).toHaveBeenCalledTimes(1);
+  });
+
+  test('click on button update should stop or resume the loading', async () => {
+    jest.mock('./api');
+    api.getData = jest.fn().mockResolvedValue(result);
+    const { getByTestId, queryByTestId } = render(<App />);
+    const buttonUpdate = getByTestId('btn-update');
+    expect(queryByTestId('been-updating').innerHTML).not.toBe('Updating...');
+    expect(buttonUpdate.innerHTML).toBe('UPDATE: Stop');
+    fireEvent.click(buttonUpdate);
+    expect(buttonUpdate.innerHTML).toBe('UPDATE: Resume');
   });
 });
