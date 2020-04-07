@@ -16,6 +16,7 @@ db.nycFacilities.aggregate([
   }
 ]);
 
+
 3;
 db.nycFacilities.aggregate([
   {
