@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-function App() {
+function App(props) {
   const [counter, setCounter] = useState(0);
 
   const increment = () => {
@@ -16,6 +16,8 @@ function App() {
       <p>count: {counter}</p>
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
+      <img src={`../images/img-${props.id}.jpg`} />
+      <img src="../images/img-4.jpg" />
     </div>
   );
 }

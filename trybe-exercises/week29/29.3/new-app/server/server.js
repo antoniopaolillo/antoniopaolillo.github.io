@@ -8,9 +8,7 @@ import App from '../src/App.js'
 
 const app = express()
 
-const reactApp = ReactDOMServer.renderToString(<App />)
-
-app.use('^/$', (req, res, next) => {
+app.use('/images/:id', (req, res, next) => {
     fs.readFile(path.resolve(__dirname, '..', 'build', 'index.html'), 'utf-8', (err, data) => {
         if (err) {
             console.error(err)
@@ -18,7 +16,7 @@ app.use('^/$', (req, res, next) => {
         }
 
         res.send(
-            data.replace('<div id="root"></div>', `<div>${reactApp}</div>`)
+            data.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(<App id={req.params.id}/>)}</div>`)
         )
     })
 })
